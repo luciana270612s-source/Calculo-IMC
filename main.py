@@ -1,23 +1,32 @@
-print("Calculadora de IMC")
+def calcular_imc(peso: float, altura: float) -> float:
+    return peso / (altura ** 2)
+
 
 print("Calculadora de IMC")
 
-peso = float(input("Introduza o seu peso em kg: "))
-altura = float(input("Introduza a sua altura em metros: "))
+continuar = "s"
 
-imc = peso / (altura ** 2)
+while continuar.lower() == "s":
+    peso = float(input("Introduza o seu peso em kg: "))
+    altura = float(input("Introduza a sua altura em metros: "))
 
-print(f"O seu IMC é: {imc:.2f}")
+    imc = calcular_imc(peso, altura)
 
-if imc < 18.5:
-    print("Classificação: Abaixo do peso")
-elif imc < 25:
-    print("Classificação: Peso normal")
-elif imc < 30:
-    print("Classificação: Excesso de peso")
-elif imc < 35:
-    print("Classificação: Obesidade grau I")
-elif imc < 40:
-    print("Classificação: Obesidade grau II")
-else:
-    print("Classificação: Obesidade grau III")
+    print(f"O seu IMC é: {imc:.2f}")
+
+    if imc < 18.5:
+        print("Classificação: Abaixo do peso")
+    elif imc < 25:
+        print("Classificação: Peso normal")
+    elif imc < 30:
+        print("Classificação: Excesso de peso")
+    elif imc < 35:
+        print("Classificação: Obesidade grau I")
+    elif imc < 40:
+        print("Classificação: Obesidade grau II")
+    else:
+        print("Classificação: Obesidade grau III")
+
+    continuar = input("\nDeseja calcular novamente? (s/n): ")
+
+print("\nPrograma terminado.")
